@@ -18,6 +18,7 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@flasher/flasher@1.2.4/dist/flasher.min.js"></script>
     <script>
 
         // Enable pusher logging - don't include this in production
@@ -29,7 +30,7 @@
 
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
-            alert(JSON.stringify(data));
+            flasher.info(JSON.stringify(data));
         });
     </script>
 
