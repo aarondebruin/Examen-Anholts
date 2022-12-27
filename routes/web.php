@@ -25,3 +25,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth');
 
+Route::get('/push/{id}', 'App\Http\Controllers\shellyActionsController@push')->name('push');
+
+
