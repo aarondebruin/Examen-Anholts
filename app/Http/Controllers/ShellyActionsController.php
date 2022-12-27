@@ -18,7 +18,7 @@ class ShellyActionsController extends Controller
 
      //   $history = ['button_location' => 'Tafel 4', 'battery' => 'Test', 'lastseen' => 'Bla'];
 
-        $message = ['button_location' => 'Tafel 4'];
+        $message = ['button_location' => $ShellyButton->button_location];
 
         event(new ShellyPushed($message));
     }
