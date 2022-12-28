@@ -14,17 +14,11 @@ use \App\Http\Controllers\IndexController;
 |
 */
 
-//Route::get('/', function () {
-//    return view('index');
-//});
-
-Route::get('/', [\App\Http\Controllers\IndexController::class, 'index']);
 
 
+Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->middleware('auth');
 
 Auth::routes();
-
-
 
 Route::get('/dashboard', function () {
     return view('dashboard');

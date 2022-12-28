@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class ButtonLog extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['button_location', 'buttonid', 'battery', 'lastseen'];
+
+
 }
