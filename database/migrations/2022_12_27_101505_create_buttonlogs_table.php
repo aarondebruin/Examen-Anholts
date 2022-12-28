@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('lastseen');
             $table->integer('battery');
             $table->string('buttonid');
+            $table->string('button_location');
         });
     }
 
