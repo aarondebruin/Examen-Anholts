@@ -18,12 +18,11 @@ use \App\Http\Controllers\IndexController;
 
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->middleware('auth');
 
-Auth::routes();
+Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth');
+Auth::routes();
 
 Route::get('/push/{id}', 'App\Http\Controllers\shellyActionsController@push')->name('push');
 
+Route::post('store', [\App\Http\Controllers\DashboardController::class, 'store']);
 

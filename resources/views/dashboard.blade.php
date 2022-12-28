@@ -8,13 +8,17 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                    <form name="form" id="form" method="post" action="{{url('store')}}">
+                        @csrf<div class="form-group">
+                            <label>Button location</label>
+                            <input type="text" id="button_location" name="button_location" class="form-control" required="">
                         </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
+                        <div class="form-group">
+                            <label>Button id</label>
+                            <input type="text" id="buttonid" name="buttonid" class="form-control" required="">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
                 </div>
             </div>
         </div>
