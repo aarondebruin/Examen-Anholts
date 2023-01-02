@@ -7,6 +7,7 @@ use App\Models\ButtonLog;
 use App\Models\ShellyButton;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Http;
 
 
 class ShellyActionsController extends Controller
@@ -16,11 +17,16 @@ class ShellyActionsController extends Controller
         $ShellyButton = ShellyButton::where('buttonid', $id)->first();
         $message = ['button_location' => $ShellyButton->button_location];
 
+        $authkey  = env("SHELLY_AUTH_KEY");
+        $deviceid = $ShellyButton->buttonid;
+        $response = Http::post('https://shelly-43-eu.shelly.cloud/device/status?auth_key='. $authkey . '&id='. $deviceid);
+        json_decode($response);
+        $button_battery = $response['data']['device_status']['bat']['value'];
 
         $Log = ButtonLog::where('buttonid', $id)->first();
         $lastseen = \Carbon\Carbon::now();
 //        dd($lastseen);
-        $buttonlog = ButtonLog::create(['button_location' => $ShellyButton->button_location, 'lastseen' => $lastseen, 'battery' => '77', 'buttonid' => $id ]);
+        $buttonlog = ButtonLog::create(['button_location' => $ShellyButton->button_location, 'lastseen' => $lastseen, 'battery' => $button_battery, 'buttonid' => $id ]);
 
         event(new ShellyPushed($message));
     }
