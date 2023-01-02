@@ -7,8 +7,6 @@
             <thead>
             <tr>
                 <th scope="col">Id</th>
-                <th scope="col">Created_at</th>
-                <th scope="col">Updated_at</th>
                 <th scope="col">Laatst gezien</th>
                 <th scope="col">Battery</th>
                 <th scope="col">Knop locatie</th>
@@ -20,8 +18,6 @@
             <tr>
 
                     <td>{{$data->id}}</td>
-                    <td>{{$data->created_at}}</td>
-                    <td>{{$data->updated_at}}</td>
                     <td>{{$data->lastseen}}</td>
                     <td>{{$data->battery}}</td>
                     <td>{{$data->button_location}}</td>
