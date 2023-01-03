@@ -20,9 +20,12 @@ Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->middle
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
 
+
 Auth::routes();
 
 Route::get('/push/{id}', 'App\Http\Controllers\shellyActionsController@push')->name('push');
 
 Route::post('store', [\App\Http\Controllers\DashboardController::class, 'store']);
+Route::delete('/destroy/{id}', [\App\Http\Controllers\DashboardController::class, 'destroy'])->name('destroy');
+
 

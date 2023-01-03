@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index() {
-        return view('dashboard');
+        $shellybuttons =   ShellyButton::all();
+        return view('dashboard', compact(['shellybuttons']) );
     }
 
     public function store(Request $request) {
@@ -16,6 +17,14 @@ class DashboardController extends Controller
         $button->button_location = $request->button_location;
         $button->buttonid = $request->buttonid;
         $button->save();
+        return redirect()->back()->with('success', 'Knop toegevoegd');
+
+    }
+
+    public function destroy($id){
+        $shellybutton = ShellyButton::where('id', $id)->firstorfail()->delete();
+        return redirect()->back()->with('danger', 'Knop verwijdert');
+
     }
 
 }
