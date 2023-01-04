@@ -8,7 +8,7 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Laatst gezien</th>
-                <th scope="col">Battery</th>
+                <th scope="col">Batterij</th>
                 <th scope="col">Knop locatie</th>
                 <th scope="col">Knop ID</th>
             </tr>

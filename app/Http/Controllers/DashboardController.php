@@ -23,7 +23,7 @@ class DashboardController extends Controller
 
     public function destroy($id){
         $shellybutton = ShellyButton::where('id', $id)->firstorfail()->delete();
-        return redirect()->back()->with('danger', 'Knop verwijdert');
+        return redirect()->back()->with('danger', 'Knop verwijderd');
 
     }
 

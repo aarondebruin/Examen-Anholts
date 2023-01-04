@@ -16,11 +16,11 @@
                 <div class="card-body">
                     <form name="form"  method="post" action="{{url('store')}}">
                         @csrf<div class="form-group">
-                            <label>Button location</label>
+                            <label>Knop locatie</label>
                             <input type="text" id="button_location" name="button_location" class="form-control" required="">
                         </div>
                         <div class="form-group">
-                            <label>Button id</label>
+                            <label>Knop ID</label>
                             <input type="text" id="buttonid" name="buttonid" class="form-control" required="">
                         </div>
                         <br>
@@ -30,7 +30,6 @@
             </div>
         </div>
     </div>
-
 <br>
 
     @if (\Session::has('danger'))
@@ -51,7 +50,7 @@
                         <th scope="col">Created_at</th>
                         <th scope="col">Knop locatie</th>
                         <th scope="col">buttonid</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Verwijder</th>
                     </tr>
                     </thead>
                     @foreach($shellybuttons as $data)
@@ -63,8 +62,7 @@
                             <td>{{$data->created_at}}</td>
                             <td>{{$data->button_location}}</td>
                             <td>{{$data->buttonid}}</td>
-
-                            <td><input class="btn btn-danger" type="submit"> </td>
+                            <td><button class="btn btn-danger" type="submit">Verwijder </button> </td>
                         </tr>
                         </form>
                     @endforeach

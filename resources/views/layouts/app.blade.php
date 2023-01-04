@@ -33,7 +33,8 @@
 
         var channel = pusher.subscribe('my-channel');
         channel.bind('my-event', function(data) {
-            flasher.info(JSON.stringify(data));
+            let text = JSON.stringify(data)
+            flasher.info(text, 'Wil een bestelling plaatsen');
         });
     </script>
 

@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use \App\Http\Controllers\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +13,11 @@ use \App\Http\Controllers\IndexController;
 |
 */
 
-
-
 Route::get('/', [\App\Http\Controllers\IndexController::class, 'index'])->middleware('auth');
 
 Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->middleware('auth');
 
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/push/{id}', 'App\Http\Controllers\shellyActionsController@push')->name('push');
 
